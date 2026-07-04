@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance P2P Bot - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+    <nav class="border-b border-gray-800 p-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <h1 class="text-xl font-bold text-yellow-400">Binance P2P Bot</h1>
+            <span class="text-sm text-gray-400">VES / USDT</span>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+                <h2 class="text-green-400 font-semibold mb-3">Mejores precios de compra</h2>
+                <div class="space-y-2">
+                    {% for p in buy_prices %}
+                    <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                        <div>
+                            <span class="font-mono text-lg">Bs.{{ "%.2f"|format(p.price) }}</span>
+                            <p class="text-xs text-gray-400">{{ p.trader }} · {{ p.payment_method }}</p>
+                        </div>
+                        <div class="text-right text-xs text-gray-500">
+                            <div>Mín: {{ "%.0f"|format(p.min_amount or 0) }}</div>
+                            <div>Máx: {{ "%.0f"|format(p.max_amount or 0) }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+                <h2 class="text-red-400 font-semibold mb-3">Mejores precios de venta</h2>
+                <div class="space-y-2">
+                    {% for p in sell_prices %}
+                    <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                        <div>
+                            <span class="font-mono text-lg">Bs.{{ "%.2f"|format(p.price) }}</span>
+                            <p class="text-xs text-gray-400">{{ p.trader }} · {{ p.payment_method }}</p>
+                        </div>
+                        <div class="text-right text-xs text-gray-500">
+                            <div>Mín: {{ "%.0f"|format(p.min_amount or 0) }}</div>
+                            <div>Máx: {{ "%.0f"|format(p.max_amount or 0) }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+            <h2 class="text-yellow-400 font-semibold mb-3">Oportunidades detectadas</h2>
+            {% if opportunities %}
+            <div class="space-y-3">
+                {% for o in opportunities %}
+                <div class="border border-gray-700 rounded-lg p-3 bg-gray-800/30">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-green-400">Compra: Bs.{{ "%.2f"|format(o.buy_price) }}</span>
+                            <span class="mx-2 text-gray-500">→</span>
+                            <span class="text-red-400">Venta: Bs.{{ "%.2f"|format(o.sell_price) }}</span>
+                        </div>
+                        <span class="bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded text-sm font-bold">
+                            +{{ "%.1f"|format(o.spread_percent) }}%
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">{{ o.payment_method }} · Spread: Bs.{{ "%.2f"|format(o.spread) }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-sm">No hay oportunidades con spread significativo en este momento.</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-800 p-4 text-center text-xs text-gray-600">
+        Actualizado cada {{ scan_interval }}s · Datos de Binance P2P
+    </footer>
+</body>
+</html>

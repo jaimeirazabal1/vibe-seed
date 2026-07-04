@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+*.db
+poetry.lock
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/

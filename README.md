@@ -1,16 +1,23 @@
-# vibe-seed
+# binance-p2p-bot
 
-Seed repo para AI-driven development.
+Monitoreo de precios P2P en Binance en VES. Ve las mejores oportunidades y recibe alertas por Telegram.
 
-## Cómo funciona
+## Stack
+
+Python 3.12 / FastAPI / PostgreSQL / Redis / Celery / Telegram Bot / TailwindCSS
+
+## Arrancar
 
 ```bash
-git clone <repo> mi-proyecto
-cd mi-proyecto
+cp .env.example .env   # editar variables
+docker compose up -d
+# o:
+poetry install && poetry run python src/main.py
 ```
 
-Le dices a la IA:
+## Comandos del Bot de Telegram
 
-> *"Quiero un bot de Binance P2P que escuche anuncios y ejecute trades automáticos"*
-
-La IA lee AGENTS.md, entiende las reglas, te pide detalles si necesita, y **construye todo el proyecto sola** — incluyendo reescribir los .md con la info específica de tu proyecto.
+- `/start` — Iniciar
+- `/precios` — Mejores precios ahora
+- `/alertar <spread>` — Alertar cuando spread supere X%
+- `/metodo <nombre>` — Filtrar por método de pago
