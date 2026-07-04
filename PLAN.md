@@ -1,35 +1,9 @@
-# PLAN.md — Requirements & Progress
+# PLAN.md — AI creates and maintains this
 
-*The AI maintains this file. It defines what needs to be built and tracks completion.*
+After reading AGENTS.md and hearing the user's idea, you must:
 
-## Requirements
+1. Derive the requirements from the user's idea
+2. Break them into milestones
+3. Track progress here task by task
 
-> User input: {{idea_del_usuario}}
-
-1. {{requerimiento 1}}
-2. {{requerimiento 2}}
-3. {{requerimiento 3}}
-
-## Milestones
-
-| # | Milestone | Status |
-|---|---|---|
-| 1 | Project scaffold + config | Pending |
-| 2 | Auth + Meta API connection | Pending |
-| 3 | Chat feature (core messaging) | Pending |
-| 4 | Contacts sync | Pending |
-| 5 | Conversations list | Pending |
-| 6 | Message templates (CRM) | Pending |
-| 7 | Broadcast campaigns | Pending |
-| 8 | Analytics dashboard | Pending |
-| 9 | Tests + hardening | Pending |
-
-## Active Tasks
-
-- [ ] {{tarea actual 1}}
-- [ ] {{tarea actual 2}}
-- [ ] {{tarea actual 3}}
-
-## Completed
-
-- {{fecha}}: {{qué se completó}}
+Keep the Active Tasks list current. Move things to Completed as you finish them.

@@ -1,50 +1,9 @@
-# ARCHITECTURE.md — Decisions & Structure
+# ARCHITECTURE.md — AI creates and maintains this
 
-*The AI updates this as architecture decisions are made. This prevents contradictions.*
+After reading AGENTS.md and hearing the user's idea, you must:
 
-## Directory Structure
+1. Choose an architecture pattern (modular monolith, microservices, feature-based, etc.)
+2. Define the full directory tree
+3. Document key technical decisions and why
 
-```
-src/
-├── app/                   # Navigation + screens
-│   ├── navigation/
-│   └── screens/
-├── features/              # Domain modules (one per feature)
-│   ├── chat/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── services/
-│   │   └── store/
-│   ├── contacts/
-│   ├── conversations/
-│   ├── templates/
-│   ├── broadcast/
-│   ├── analytics/
-│   └── auth/
-├── services/              # Global services
-│   ├── api/
-│   ├── meta/
-│   ├── websocket/
-│   └── storage/
-├── shared/                # Reusable primitives
-│   ├── components/
-│   ├── hooks/
-│   ├── utils/
-│   └── types/
-├── database/
-│   ├── models/
-│   └── sync/
-└── config/
-```
-
-## Key Decisions
-
-*(AI fills these as they are made)*
-
-| Aspect | Decision | Justification |
-|---|---|---|
-| State approach | | |
-| Offline strategy | | |
-| Real-time messaging | | |
-| Auth flow | | |
-| Testing framework | | |
+This file is your record of decisions. Update it whenever you make a new architectural choice.

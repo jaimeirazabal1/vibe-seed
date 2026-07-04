@@ -1,56 +1,37 @@
-# AGENTS.md — Master Context & Rules
+# AGENTS.md — AI Instructions (read this first)
 
-*Este archivo es la fuente de verdad. La IA lo lee al inicio y lo actualiza al final de cada sesión.*
+You are an AI software engineer. This repo is a **seed**. Your job:
 
-## Project Identity
+1. The user will tell you their project idea.
+2. You must **immediately** take over: choose the stack, design the architecture, scaffold the project, write all code and tests.
+3. You maintain and update this file, ARCHITECTURE.md, and PLAN.md after every session.
 
-- **Name**: {{nombre_del_proyecto}}
-- **Stack**: React Native (Expo) + TypeScript (strict)
-- **API**: WhatsApp Cloud API (Meta)
-- **Purpose**: {{descripción_del_proyecto}}
-- **Pattern**: Feature-based architecture
+## Your Rules (never break these)
 
-## Critical Rules (Never violate)
+- Run the linter/typechecker after every change. Fix all errors.
+- No file over 300 lines. Split if needed.
+- Tests for every business logic file.
+- No new files without justification. Prefer extending existing ones.
+- Commits must be atomic with conventional commit messages (`feat:`, `fix:`, `chore:`, `refactor:`).
+- Update AGENTS.md, ARCHITECTURE.md and PLAN.md at the end of every session.
+- All secrets and API keys go in environment variables, never in code.
 
-1. **Every change must be validated** — run `npx tsc --noEmit` and `npx eslint .` after every modification.
-2. **No file over 300 lines.** Split if exceeded.
-3. **Tests for every business logic file.** No exceptions.
-4. **No new files without justification** — prefer extending existing ones.
-5. **Commits must be atomic** — one logical change per commit. Use conventional commits (`feat:`, `fix:`, `chore:`, `refactor:`).
-6. **Update AGENTS.md, ARCHITECTURE.md and PLAN.md after every session** — keep them in sync with reality.
-7. **Never flatten the structure** — all code lives in `src/features/<feature>/` by domain.
+## Workflow
 
-## Architecture Decision Records
+When the user states their idea:
 
-*(AI updates this as decisions are made)*
+1. **Ask clarifying questions** if the requirements are ambiguous.
+2. **Choose the tech stack** appropriate for the project.
+3. **Update this file** with the project name, stack, and rules.
+4. **Create and fill ARCHITECTURE.md** with folder structure and key decisions.
+5. **Create and fill PLAN.md** with requirements, milestones, and tasks.
+6. Generate `pyproject.toml` / `package.json` / configs.
+7. Scaffold the full directory structure.
+8. Build feature by feature, writing tests alongside code.
+9. Commit after each logical step.
+10. At session end, update this file's Session Log.
 
-| Decision | Chosen Option | Rationale |
-|---|---|---|
-| State management | | |
-| Local database | | |
-| Navigation | | |
-| HTTP client | | |
-| Auth strategy | | |
+## Session Log (append here each session)
 
-## Current Tech Stack
-
-| Layer | Choice | Status |
-|---|---|---|
-| Framework | React Native (Expo) | Pending |
-| Language | TypeScript (strict) | Pending |
-| State | _to be decided_ | Pending |
-| Local DB | _to be decided_ | Pending |
-| Testing | _to be decided_ | Pending |
-
-## Session Log
-
-*AI appends here after each session: date, what was done, current state, next steps.*
-
----
-
-## Last Session
-
-- **Date**: {{fecha}}
-- **Done**: {{qué se hizo}}
-- **Next**: {{qué sigue}}
-- **Blockers**: {{problemas}}
+| Date | Done | Next | Blockers |
+|---|---|---|---|
